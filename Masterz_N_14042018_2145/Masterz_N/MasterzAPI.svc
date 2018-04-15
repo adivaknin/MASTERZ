@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="Masterz_N.MasterzAPI" CodeBehind="MasterzAPI.svc.cs" %>

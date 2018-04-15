@@ -1,0 +1,58 @@
+﻿<div class="row modal-content">
+    <div class="col-xs-12">
+       <div class="col-xs-1"></div>
+       <div class="col-xs-1">
+            <div><button type="submit" class="btn btn-default bgEdit btnWidth70">ערך</button></div>
+            <div><button type="submit" class="btn btn-default bgSave btnWidth70">שמור</button></div>
+        </div>
+        <div class="col-xs-9">
+            <div class="form-group">
+                <div class="col-xs-9"><input type="text" class="form-control" ng-model="username"/></div>
+                <div class="col-xs-3 text-right"> :שם פרטי*</div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-9"><input type="text" class="form-control" ng-model="username"/></div>
+                <div class="col-xs-3 text-right"> :שם משפחה *</div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-9">
+                    <div class="col-xs-2 padL0"><!--<input type="text" class="form-control"/>--><select ng-model="selectedName" ng-options="item for item in options"></select></div>
+                     <div class="col-xs-10 padR0"><input type="text" class="form-control"/></div>
+                </div>
+                <div class="col-xs-3 text-right"> :טלפון</div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-9"><input type="text" class="form-control" ng-model="username"/></div>
+                <div class="col-xs-3 text-right"> :עיר\ישוב</div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-9"><input type="text" class="form-control" ng-model="username"/></div>
+                <div class="col-xs-3 text-right">:דואר אלקרוני</div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-9">
+                    <div class="text-right"><!-- class="radio-inline" ng-repeat="group in groups"-->
+                    <label>
+                     מנהל חלל אימון
+                        <input type="radio" value="CHOOSE" ><!--name="{{group.name}}_{{$index}}" ng-model="group.type"-->
+                    </label>
+                    <label>
+                     מאמן
+                        <input type="radio"  value="ADD"><!--name="{{group.name}}_{{$index}}" ng-model="group.type"-->
+                    </label>
+                  </div>
+                </div>
+                <div class="col-xs-3 text-right"> :סוג נותן שירות</div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-9"><input type="text" class="form-control" ng-model="username"/></div>
+                <div class="col-xs-3 text-right"> :חוזה חתום</div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-9 text-right"><textarea id="textareaEdit" ng-model="textareaValue"></textarea></div>
+                <div class="col-xs-3 text-right"> :חוזה חתום</div>
+            </div>
+        </div>
+        <div class="col-xs-1"></div>
+    </div>
+</div>

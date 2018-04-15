@@ -1,0 +1,137 @@
+CREATE DATABASE IF NOT EXISTS masterz_n
+
+  create table masterz_n.tbl_Roles(
+   RoleId INT NOT NULL AUTO_INCREMENT,
+   RoleName VARCHAR(100) NOT NULL,
+   DateEntered DATETIME DEFAULT CURRENT_TIMESTAMP,
+   DateUpdated DATETIME ON UPDATE CURRENT_TIMESTAMP,
+   PRIMARY KEY ( RoleId )
+);
+
+
+  INSERT INTO masterz_n.tbl_Roles
+    (RoleName)
+  VALUES
+    ('MainAdmin'),
+    ('AdminStudio'),
+    ('Coach');
+
+drop table masterz_n.tbl_users	
+	
+CREATE TABLE masterz_n.tbl_users (
+  UserId INT(11) NOT NULL AUTO_INCREMENT,
+  UserFirstName VARCHAR(255) NOT NULL,
+  UserLastName VARCHAR(255) NOT NULL,
+  UserName VARCHAR(255) NOT NULL,
+  UserPassword VARCHAR(255) NOT NULL,
+  UserEmail VARCHAR(255) NOT NULL,
+  UserPhone VARCHAR(255) NOT NULL,
+  UserHotemHoze DATETIME NOT NULL,
+  UserHozeName VARCHAR(255) NOT NULL,
+  UserCity VARCHAR(255) NOT NULL,
+  SugZiudBeBaaluto VARCHAR(255) DEFAULT NULL,
+  DateEntered DATETIME DEFAULT CURRENT_TIMESTAMP,
+  DateUpdated DATETIME DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (UserId)
+)	
+	
+	 INSERT INTO masterz_n.tbl_Users
+    (UserFirstName,UserLastName,UserName,UserPassword,UserEmail,UserPhone,UserHotemHoze,UserHozeName,UserCity,SugZiudBeBaaluto)
+  VALUES
+    ('Yair','Kogan','admin','1111','yair.kogan@gmail.com','05454545454',CURDATE() ,'hozeName_1','Tel Aviv',''),
+    ('Yael','Kitsis','kuku','2222','yael.kitsis@gmail.com','05353535353',CURDATE() ,'hozeName_2','Tel Aviv',''),
+    ('Roberto','Cavalli','ww','1234','roberto.cavalli@gmail.com','05050505050',CURDATE() ,'hozeName_3','Ramat Gan',''),
+	  ('Shmuel','Levi','q1w2','1234','shmulik.levi@gmail.com','05454545454',CURDATE() ,'hozeName_4','Beer Sheva',''),
+    ('Nanny','Super','qq','3444','nanny.super@gmail.com','05353535353',CURDATE() ,'hozeName_5','Bat Yam','')
+	
+CREATE PROCEDURE masterz_n.usp_GetUsers 
+(
+--    userId int
+) 
+BEGIN 
+   SELECT tbl_Users.UserId,
+  UserFirstName,
+  UserLastName,
+  UserEmail,
+  UserPhone,
+  UserHotemHoze,
+  UserHozeName,
+  UserCity,
+  SugZiudBeBaaluto,
+  tbl_Users.DateEntered,
+  tbl_Users.DateUpdated,
+    tbl_roles.RoleName
+FROM tbl_Users
+    inner join tbl_UserRole_rel on tbl_UserRole_rel.UserId = tbl_Users.userId
+    inner join tbl_roles on tbl_UserRole_rel.RoleId = tbl_roles.RoleId;
+END; 
+
+
+ 
+	
+	create table masterz_n.tbl_UserRole_rel(
+     UserRolelId INT NOT NULL AUTO_INCREMENT,
+     UserId INT NOT NULL,
+     RoleId INT NOT NULL,
+     DateEntered DATETIME DEFAULT CURRENT_TIMESTAMP,
+     DateUpdated DATETIME ON UPDATE CURRENT_TIMESTAMP,
+     PRIMARY KEY ( UserRolelId )
+);
+
+INSERT INTO masterz_n.tbl_UserRole_rel
+    (UserId,RoleId)
+  VALUES
+    ('1','1'),
+    ('2','2'),
+    ('2','3');
+
+	
+CREATE DEFINER = 'root'@'localhost'
+PROCEDURE masterz_n.usp_GetUsers()
+BEGIN
+  SELECT tbl_Users.UserId,
+  UserFirstName,
+  UserLastName,
+  UserEmail,
+  UserPhone,
+  UserHotemHoze,
+  UserHozeName,
+  UserCity,
+  SugZiudBeBaaluto,
+  tbl_Users.DateEntered,
+  tbl_Users.DateUpdated,
+    tbl_roles.RoleName
+FROM tbl_Users
+    inner join tbl_UserRole_rel on tbl_UserRole_rel.UserId = tbl_Users.userId
+    inner join tbl_roles on tbl_UserRole_rel.RoleId = tbl_roles.RoleId;
+END
+
+drop procedure masterz_n.usp_GetUserRoleByRoleId 
+
+  CREATE PROCEDURE masterz_n.usp_GetUserRoleByRoleId 
+(
+   userId int
+) 
+BEGIN 
+   SELECT UserId,RoleId
+FROM tbl_UserRole_rel
+  WHERE tbl_UserRole_rel.UserId = userId;
+END; 
+
+  CREATE PROCEDURE masterz_n.usp_GetUserByUserName 
+(
+    userName VARCHAR(255),
+    userPassword VARCHAR(255)
+) 
+BEGIN 
+   SELECT tbl_users.UserId,
+    tbl_users.UserFirstName,
+    tbl_users.UserLastName,
+    tbl_roles.RoleName,
+    tbl_roles.RoleId
+FROM tbl_users
+      inner join tbl_UserRole_rel on tbl_UserRole_rel.UserId = tbl_Users.userId
+      inner join tbl_roles on tbl_roles.RoleId = tbl_UserRole_rel.RoleId
+    WHERE tbl_users.UserName = userName 
+    AND tbl_users.UserPassword = userPassword;
+END; 

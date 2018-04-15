@@ -1,0 +1,36 @@
+﻿<div class="row">
+    <div class="col-xs-12">
+        <div class="col-xs-4">
+            <div class="col-xs-12">
+      <h3>Login Page</h3>
+      
+      <form ng-submit="formSubmit()" class="form">
+        <div >
+          <div class="form-group">
+            <input type="text" class="form-control" ng-model="username" placeholder="username" required=""/>
+          </div> 
+
+          <div class="form-group">
+            <input type="password" class="form-control" ng-model="password" placeholder="password" required=""/>
+          </div>
+            <div class="form-group">
+                <span>
+                <input type="checkbox" name="remember" data-ng-click="rememberMe()" data-ng-model="remember"> &nbsp; Remember Me
+                </span>
+                <span><a href="#/">Forgot password</a></span>
+            </div>
+
+          <div class="form-group">
+            <button type="submit" class="btn btn-success">Go</button>
+            <span class="text-danger">{{ error }}</span>
+          </div>
+
+        </div>
+      </form>
+    </div>
+        </div>
+                <div class="col-xs-8">
+            <img src="../Images/Login.png" />
+        </div>
+    </div>
+</div>

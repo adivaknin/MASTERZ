@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <title>Masterz</title>
+
+    <script src="Scripts/jquery.js"></script>
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-ui-router.js"></script>
+    <script src="Scripts/angular-ui.js"></script>
+    <script src="App/app.js"></script>
+    <script src="App/addNewEvent.js"></script>
+    <script src="App/addNewLesson.js"></script>
+    <script src="App/addNewUser.js"></script>
+    <script src="App/checkOutfit.js"></script>
+    <script src="App/controllers.js"></script>
+    <script src="App/editExistEvent.js"></script>
+    <script src="App/editExistUser.js"></script>
+    <script src="App/editLesson.js"></script>
+    <script src="App/events.js"></script>
+    <script src="App/graficScreen.js"></script>
+    <script src="App/halalimLeHaskara.js"></script>
+    <script src="App/home.js"></script>
+    <script src="App/lessonSchedule.js"></script>
+    <script src="App/login.js"></script>
+    <script src="App/luhotZmanim.js"></script>
+    <script src="App/messages.js"></script>
+    <script src="App/screenTargets.js"></script>
+    <script src="App/securityLogin.js"></script>
+    <script src="App/statisticScreen.js"></script>
+    <script src="App/systemPanel.js"></script>
+    <script src="App/updateExistingService.js"></script>
+    <script src="App/users.js"></script>
+
+    <script src="Controllers/EventSide.js"></script>
+    <script src="Controllers/UserSide.js"></script>
+    <script src="Controllers/ScreenSide.js"></script>
+
+    <!--<script src="./Scripts/bootstrap.min.js"></script>-->
+    <script src="Scripts/angular-ui-bootstrap-modal.js"></script>
+
+    <link rel="stylesheet" href="Style/CSS/bootstrap.css" />
+    <link rel="stylesheet" href="Style/CSS/style.css" />
+
+</head>
+<body class="text-right">
+    <div class="row bgHeader">
+        <div class="col-xs-2 padLeft5"><a href="#/home"><img src="Images/logo1.png" width="95" height="97" /></a></div>
+        <div class="col-xs-10 text-right padRight5">hellow world!</div>
+    </div>
+    <nav class="navbar navbar-default">
+        <div>
+            <div class="icon-bar">
+                <a href="#/graficScreen"><i class="glyphicon glyphicon-lock"></i>כריית מידע</a>
+                <a href="#/events"><i class="glyphicon glyphicon-search"></i>אירועי שיווק וגיוס</a>
+                <a href="#/users"><i class="glyphicon glyphicon-icon-group"></i>נותני שרות</a>
+                <a href="#/luhotZmanim"><i class="glyphicon glyphicon-calendar"></i>לוחות זמנים </a>
+            </div>
+        </div>
+    </nav>
+
+    <div><!-- class="container"-->
+        <div id="ui-view" ui-view>
+        </div>
+    </div>
+</body>
+</html>

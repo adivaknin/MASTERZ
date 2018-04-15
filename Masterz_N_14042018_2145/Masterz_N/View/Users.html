@@ -1,0 +1,64 @@
+﻿<div class="row">
+    <div>
+        <div class="row">
+            <div class="col-xs-9">
+                <div>search</div>
+                <div>
+                    <table class="table table-bordered table-striped" fixed-header>
+                        <thead>
+                            <tr>
+                                <th>עדכן לאחרונה</th>
+                                <th>התמחות</th>
+                                <th>סוג שירות</th>
+                                <th>שם</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="user in users">
+                                <td>{{user.DateUpdated}}</td><!--<button class="btn" ng-click="open()">Open Modal</button>-->
+                                <td>{{user.UserEmail}}</td>
+                                <td>{{user.RoleName}}</td>
+                                <td>{{user.UserFirstName}} {{user.UserLastName}}</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td>Footer 1</td>
+                                <td>Footer 2</td>
+                                <td>Footer 3</td>
+                                <td>Footer 4</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+            <!-- The Modal -->
+  <!--        <div modal="showModal" close="cancel()">
+            <div class="modal-header">
+                <h4>Modal Dialog</h4>
+            </div>
+            <div class="modal-body">
+                <p>Example paragraph with some text.</p>
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-success" ng-click="ok()">Okay</button>
+              <button class="btn" ng-click="cancel()">Cancel</button>
+            </div>
+          </div>-->
+
+            <div class="col-xs-3 sidenav bgSide" style="padding-right: 15px; height:350px;">
+               <!-- <div class="text-center cW">
+                    <p><h1>נותני שרות</h1></p>
+                </div>
+                <div>
+                    <a href="#/editExistUser" class="btn btn-side mb-20">עדקון נותן שרות קיים</a>
+                </div>
+                <div>
+                    <a class="btn btn-side mb-20"  href="#/addNewUser">הוספת נותן שרות חדש</a>
+                </div>-->
+                <div ng-include="'../Controllers/UserSide.html'"></div>
+
+            </div>
+        </div>
+    </div>
+</div>
